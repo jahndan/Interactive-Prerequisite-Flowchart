@@ -1,0 +1,6 @@
+# note: follows .gitignore rules by default
+# https://prettier.io/docs/en/ignore
+
+# tracked files to exclude
+pnpm-lock.yaml
+app/db/**/*.json
