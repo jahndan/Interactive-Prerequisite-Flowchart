@@ -1,59 +1,90 @@
-TODO general cleanup of each section (also insert pictures/examples and more detail on frontend-y stuff, we have plenty about backend already)
+<!-- ensure this structure makes sense and add placeholders for info about front-end -- also cut out some of the excess detail on back-end -- and make sure contribution/setup/installation instructions are up-to-date/still working -- then finally review all writing to keep it reasonably concise -->
 
-# Interactive Prerequisite Flowchart
-Classes can have prerequisites which are typically listed at the bottom of a course description page. However, this textual description can be confusing when registering for classes, and near-impossible to use when planning for graduation. Inspired by the Fall 2022 project Prerequisite Flowchart, which itself was inspired by the Department of Computer Science and Engineering's [undergraduate prerequisite chart](https://cse.umn.edu/cs/ug-prerequisite-chart), Course Flowchart is a website which makes all departments and courses searchable, displaying a chart of the relationship between all classes in a department or the prerequisites of a course.
+# UMN Course Flowchart
 
-- [Interactive Prerequisite Flowchart](#interactive-prerequisite-flowchart)
-  - [Details](#details)
-  - [Technologies](#technologies)
-  - [Work in progress](#work-in-progress)
-  - [Contribute](#contribute)
-  - [Getting started](#getting-started)
-  - [Project structure](#project-structure)
+<!--1.0: add a link to the deployed site on these first two words-->
+Course Flowchart is a website that will doubly function as a better course catalog and degree planning tool than the University of Minnesota's official tools. (Note: We currently only plan to cater to the Twin Cities campus.)
 
-## Details
-The website relies on publically available data provided by the [Coursedog API](https://coursedog.docs.apiary.io/), a new [course catalog](https://umtc.catalog.prod.coursedog.com/courses) system adopted by the University of Minnesota in August 2023. From this API, department information and individual courses' information is scraped for the entire Twin Cities campus. The data is then assembled into JSON files which contain relevant information for displaying useful descriptions and building prerequisite charts.
+- [Features](#features)
+- [Details](#details)
+- [Contribution](#contribution)
 
-### Technologies
-The website is a [Next.js](https://nextjs.org/) project which makes use of the [Mermaid](https://mermaid.js.org/) library to present department/course prerequisite charts. The Coursedog API was used to build caches of course information stored in the repository.
-1. [Mermaid](https://mermaid.js.org/intro/)
-   - Currently used for drawing the flowcharts to the webpages. Plans are to migrate from this to either Reaflow or Reagraph.
-2. [Reaflow](https://reaflow.dev/?path=/docs/docs-introduction--docs) and/or [Reagraph](https://reagraph.dev/?path=/docs/docs-intro--docs)
-   - Not yet in use, but will be migrated to soon.
-3. [Coursedog Curriculum API](https://coursedogcurriculum.docs.apiary.io/#introduction/authentication/authentication-steps)
-   - This project is made by and for UMN students.
-   - The university is moving its data into Coursedog, making this API a solid choice for our data.
+Courses at the University have prerequisites which are typically listed at the end of a course description.
 
-### Work in progress
-Development is intended to continue into the Spring 2024 semester as many ideas were tabled, such as:
+![alt text](public/demo/example-description.png)
+<!--TODO make these pictures-->
+
+However, this textual description only includes information for that specific course, which can help register for classes, but is incredibly tedious to parse for degree-planning. To this end, our website makes much more readable flowcharts of the prerequisite relationships between courses, and generally serves as a more useful course catalog.
+
+## Features
+
+- list of features
+![with demo pictures](public/demo/feature1.png)
+- that are very cool
+![with demo pictures](public/demo/feature2.png)
+- and already work
+![with demo pictures](public/demo/feature3.png)
+<!--TODO make these pictures-->
+
+#### Planned (or work-in-progress)
+
 - TODO UPDATE
 - Selecting multiple classes to present in a single graph
 - Displaying what classes take a selected class as a prerequisite
 - Clickable graph nodes
 - A planning tool/integration with Graduation Planner
 
-### Contribute
-If you are not part of the main team, first fork and then clone the repository. Then setup and install dependencies as specified in [Initialize](#initialize) and [Run](#run). All development should be based on the `development` branch, so base any changes off the latest version of development. This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/). Use `pnpm lint` to check for linting errors or setup your editor to display them. Once ready to be merged in, submit a pull request (specify what issue will be resolved by this PR).
+## Details
+
+This project rips data directly from the University of Minnesota's [course catalog](https://umtc.catalog.prod.coursedog.com/courses), using the publically available [Coursedog API](https://coursedog.docs.apiary.io/), a catalog system adopted by the University to replace the previous in-house catalog system in August 2023. The API response, which contains department information and individual course information for the Twin Cities campus, is filtered down to the most useful information and written to JSON files held in this repository.
+<!--This last part should be updated upon relational database-->
+
+#### Technologies
+
+- [Next.js](https://nextjs.org/) as a full-stack framework (with Vercel deployment by extension)
+- [Mermaid](https://mermaid.js.org/) as a flowchart/graph visualization tool
+<!--If we migrate to using an actual relational database, this is where a bullet point should be added for that-->
+
+## Contribution
 
 ### Getting started
+
+#### Very basics
+
+If you are not part of the core team, [fork](https://docs.github.com/articles/fork-a-repo) this repository and [clone](https://docs.github.com/articles/cloning-a-repository) it locally. We will assume you already have a git client installed and [basic knowledge](https://learngitbranching.js.org/) of how to use it.
+
+#### Project setup
+
+To actually get started with the project, you will need to install [Node](https://nodejs.org/en/download) as the project's runtime and [pnpm](https://pnpm.io/installation) as the project's package manager.
+
+Then, open your terminal emulator and change directory into the top-level directory of the repo. (If you just used git on the command-line to clone the repository, you only need to run `cd Interactive-Prerequisite-Flowchart`.)
+
+Then run the following command to install the project's dependencies: `pnpm install` (or `pnpm i`, which does the same thing).
+
+Finally, run `pnpm dev` to start the development server and verify that everything was setup correctly and works. To stop the dev server, stop the process in your terminal emulator. (Note: `Ctrl+C` on most terminal emulators stops the currently running process.)
+
+# TODO WRITE BELOW
+
+### Pull requests
+
+Then setup and install dependencies as specified in [Initialize](#initialize) and [Run](#run). All development should be based on the `development` branch, so base any changes off the latest version of development. This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/). Use `pnpm lint` to check for linting errors or setup your editor to display them. Once ready to be merged in, submit a pull request (specify what issue will be resolved by this PR).
+
 Make sure to download and install the following:
 - [Node.js](https://nodejs.org/)
 - [pnpm](https://pnpm.io/)
 - everything they need to install (prettier, eslint, etc.)
 
 ## Run
+
 To run the project locally, follow these steps:
-1. Install dependencies:
-   `pnpm install`
-2. Run the development server:
-   `pnpm dev`
+1. Install dependencies: `pnpm install`
+2. Run the development server: `pnpm dev`
 
 ## Deployment
+
 To deploy the project, follow these steps:
-1. Build the project:
-   `pnpm build`
-2. Start the server:
-   `pnpm start`
+1. Build the project: `pnpm build`
+2. Start the server: `pnpm start`
 
 5. Generate json data files
    - `app/data/sources.js` is a script for generating all json data files.
