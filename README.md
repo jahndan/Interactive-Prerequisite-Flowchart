@@ -1,4 +1,5 @@
 <!-- ensure this structure makes sense and add placeholders for info about front-end -- also cut out some of the excess detail on back-end -- and make sure contribution/setup/installation instructions are up-to-date/still working -- then finally review all writing to keep it reasonably concise -->
+<!-- also format this properly with good word-wrapping at ~80 chars -->
 
 # UMN Course Flowchart
 
@@ -12,7 +13,9 @@ Course Flowchart is a website that will doubly function as a better course catal
 Courses at the University have prerequisites which are typically listed at the end of a course description.
 
 ![alt text](public/demo/example-description.png)
-<!--TODO make these pictures-->
+<!--TODO add the 4041 catalog picture-->
+
+<!--While we're at it, perhaps show off how unintuitive and awful the official catalog is to use-->
 
 However, this textual description only includes information for that specific course, which can help register for classes, but is incredibly tedious to parse for degree-planning. To this end, our website makes much more readable flowcharts of the prerequisite relationships between courses, and generally serves as a more useful course catalog.
 
@@ -31,8 +34,8 @@ However, this textual description only includes information for that specific co
 - TODO UPDATE
 - Selecting multiple classes to present in a single graph
 - Displaying what classes take a selected class as a prerequisite
-- Clickable graph nodes
-- A planning tool/integration with Graduation Planner
+- Clickable graph node interaction
+- Degree planner capabilities
 
 ## Details
 
@@ -41,9 +44,12 @@ This project rips data directly from the University of Minnesota's [course catal
 
 #### Technologies
 
-- [Next.js](https://nextjs.org/) as a full-stack framework (with Vercel deployment by extension)
-- [Mermaid](https://mermaid.js.org/) as a flowchart/graph visualization tool
+- [Next.js](https://nextjs.org/) as a full-stack [React](https://react.dev/) framework
+- [TypeScript](https://www.typescriptlang.org/), [ESLint](https://eslint.org/), and [Prettier](https://prettier.io/) make JS much more ergonomic to work with
+- [TailwindCSS](https://tailwindcss.com/) for styling and generally being easier to manage than plain CSS
+- [Mermaid](https://mermaid.js.org/) as a flowchart/graph visualization tool (though we may build our own with [elkjs](https://github.com/kieler/elkjs))
 <!--If we migrate to using an actual relational database, this is where a bullet point should be added for that-->
+- This project runs on the [Node](https://nodejs.org/) JS runtime, and we use [pnpm](https://pnpm.io/) as our package manager.
 
 ## Contribution
 
@@ -61,13 +67,15 @@ Then, open your terminal emulator and change directory into the top-level direct
 
 Then run the following command to install the project's dependencies: `pnpm install` (or `pnpm i`, which does the same thing).
 
-Finally, run `pnpm dev` to start the development server and verify that everything was setup correctly and works. To stop the dev server, stop the process in your terminal emulator. (Note: `Ctrl+C` on most terminal emulators stops the currently running process.)
+Finally, run `pnpm dev` to start the development server and verify that everything was setup correctly and works. To stop the dev server, stop the process as you normally would in your terminal emulator. (Note: `Ctrl+C` on most terminal emulators stops the currently running process.)
 
 # TODO WRITE BELOW
 
+### Issues
+
 ### Pull requests
 
-Then setup and install dependencies as specified in [Initialize](#initialize) and [Run](#run). All development should be based on the `development` branch, so base any changes off the latest version of development. This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/). Use `pnpm lint` to check for linting errors or setup your editor to display them. Once ready to be merged in, submit a pull request (specify what issue will be resolved by this PR).
+Then setup and install dependencies as specified in [Initialize](#initialize) and [Run](#run). All development should be based on the `main` branch, so make sure to rebase your changes on top of `main` before making the pull request. This project uses [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/). Use `pnpm lint` to check for linting errors or setup your editor to display them. You can use `pnpm fmt` to check for any improperly formatted code. Once your work is ready to be merged in, submit a pull request (specify what issue will be resolved by this PR).
 
 Make sure to download and install the following:
 - [Node.js](https://nodejs.org/)
